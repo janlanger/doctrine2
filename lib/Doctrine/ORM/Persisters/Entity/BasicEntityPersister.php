@@ -1326,7 +1326,7 @@ class BasicEntityPersister implements EntityPersister
                                 . '.' . $quotedColumn . ' AS ' . $resultColumnName;
             $type             = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
 
-            $this->currentPersisterContext->rsm->addMetaResult($alias, $resultColumnName, $quotedColumn, $isIdentifier, $type);
+            $this->currentPersisterContext->rsm->addMetaResult($alias, $resultColumnName, $joinColumn['name'], $isIdentifier, $type);
         }
 
         return implode(', ', $columnList);
